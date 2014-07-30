@@ -21,7 +21,11 @@ class BaseNestedFormset(BaseInlineFormSet):
                 form.prefix,
                 self.nested_formset_class.get_default_prefix(),
             ),
+            **self.get_nested_form_kwargs()
         )
+
+    def get_nested_form_kwargs(self):
+        return {}
 
     def is_valid(self):
 
